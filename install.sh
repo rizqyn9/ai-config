@@ -11,3 +11,6 @@ for f in "$R"/kiro/steering/*.md; do link "$f" ~/.kiro/steering/"$(basename "$f"
 for f in "$R"/kiro/settings/*;    do link "$f" ~/.kiro/settings/"$(basename "$f")"; done
 link "$R/omp/config.yml" ~/.omp/agent/config.yml
 link "$R/omp/RULES.md"   ~/.omp/agent/RULES.md
+for f in opencode/opencode.jsonc opencode/AGENTS.md opencode/agents opencode/plugins/cbm-augment.ts opencode/skills/codebase-memory; do
+  link "$R/$f" ~/.config/"$f"
+done

@@ -2,7 +2,7 @@ setupVersion: 3
 memory:
   backend: local
 modelRoles:
-  default: amazon-bedrock/global.anthropic.claude-fable-5-2
+  default: amazon-bedrock/global.anthropic.claude-sonnet-5-5:medium
   slow: amazon-bedrock/global.anthropic.claude-opus-5-5:high
   plan: "@slow"
   task: amazon-bedrock/global.anthropic.claude-sonnet-5-5:medium

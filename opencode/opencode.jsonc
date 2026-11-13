@@ -1,0 +1,27 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "provider": {
+    "amazon-bedrock": {
+      "options": {
+        "region": "us-east-1",
+      }
+  }
+  },
+  "mcp": {
+    "codebase-memory-mcp": {
+      "command": [
+        "/Users/rizqynugroho/.local/bin/codebase-memory-mcp"
+      ],
+      "type": "local"
+    },
+    "paper": {
+      "type": "local",
+      "command": [
+        "/Users/rizqynugroho/.paper/bin/paper",
+        "mcp"
+      ],
+      "enabled": true
+    }
+  },
+  "shell": "zsh"
+}
