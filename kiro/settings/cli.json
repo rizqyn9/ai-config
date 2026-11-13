@@ -1,0 +1,12 @@
+{
+  "app.hideMenubarIcon": true,
+  "app.launchOnStartup": false,
+  "autocomplete.disable": true,
+  "autocomplete.insertSpaceAutomatically": false,
+  "chat.greeting.enabled": false,
+  "codeWhisperer.shareCodeWhispererContentWithAWS": false,
+  "inline.enabled": false,
+  "telemetry.enabled": false,
+  "chat.enableAutoAgentUpgrade": true,
+  "chat.disableTrustAllConfirmation": true
+}

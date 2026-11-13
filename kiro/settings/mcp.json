@@ -1,0 +1,12 @@
+{
+  "mcpServers": {},
+  "powers": {
+    "mcpServers": {
+      "power-domscribe-power-domscribe": {
+        "command": "npx",
+        "args": ["-y", "@domscribe/mcp"],
+        "disabled": false
+      }
+    }
+  }
+}

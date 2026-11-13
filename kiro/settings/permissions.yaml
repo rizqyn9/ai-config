@@ -1,0 +1,6 @@
+rules:
+  - capability: all
+    effect: allow
+    match: [ "*" ]
+policies:
+  - approve-for-me

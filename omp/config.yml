@@ -1,0 +1,55 @@
+setupVersion: 3
+memory:
+  backend: local
+modelRoles:
+  default: amazon-bedrock/global.anthropic.claude-fable-5-2
+  slow: amazon-bedrock/global.anthropic.claude-opus-5-5:high
+  plan: "@slow"
+  task: amazon-bedrock/global.anthropic.claude-sonnet-5-5:medium
+  advisor: amazon-bedrock/global.anthropic.claude-opus-5-5:medium
+  smol: amazon-bedrock/global.anthropic.claude-haiku-5-5:low
+  commit: "@smol"
+advisor:
+  enabled: true
+  reviewMode: agent-end
+task:
+  agentModelOverrides:
+    scout: "@smol"
+  enableLsp: true
+compaction:
+  thresholdTokens: 250000
+disabledProviders:
+  - ollama
+  - llama.cpp
+  - lm-studio
+autolearn:
+  enabled: true
+lsp:
+  formatOnWrite: true
+  diagnosticsOnEdit: true
+tools:
+  approvalMode: yolo
+bash:
+  allowCompoundCommands: true
+astGrep:
+  enabled: true
+generate_image:
+  enabled: false
+checkpoint:
+  enabled: true
+github:
+  enabled: true
+plan:
+  autosave: true
+  autosaveDir: ""
+theme:
+  dark: titanium
+  light: light-cyberpunk
+colorBlindMode: false
+dev:
+  autoqaConsent: granted
+snapcompact:
+  toolResults: false
+update:
+  auto: true
+defaultThinkingLevel: auto
