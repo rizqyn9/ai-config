@@ -13,3 +13,5 @@ Claude: `settings.json` is a sanitized copy (no Bedrock token, no Orca-injected 
 omp variants: `omp-lite` (no Opus, advisor off) and `omp-pro` (Opus default/plan/advisor) are `--config` overlays in `omp/profiles/`, loaded by `omp/aliases.zsh`. They share sessions and memory with plain `omp`; `--profile` would isolate everything instead.
 
 Skills: none are global. Private skills live in `skills/` (see `skills/README.md`) and are installed per project with `bunx skills add`. The old global set is parked in `~/.agents/skills-disabled/` (with a list of removed symlinks).
+
+Kirocrew: it generates `kirocrew-skill-view-*` agents that clutter Kiro IDE's agent picker. Fix: `KIROCREW_NATIVE_SKILL_PROJECTION=0` in `~/Library/LaunchAgents/dev.kirocrew.gateway.plist` (`EnvironmentVariables`), then `launchctl bootout/bootstrap gui/$(id -u) <plist>`. Re-check after Kirocrew app updates, which may rewrite the plist.

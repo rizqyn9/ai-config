@@ -12,3 +12,5 @@ Notes:
 - Without `-g` the skill lands in `<project>/.agents/skills` and is recorded in `skills-lock.json`; commit both.
 - A local path is copied at install time. Re-run `bunx skills update` after editing a skill here.
 - Remote form once this repo is pushed (private works through git/gh/SSH auth): `bunx skills add <owner>/ai-config --skill <name>`.
+
+Public skills I use (source, what they do, install line): see `public.md`. Add a row there when you start using a new one.
