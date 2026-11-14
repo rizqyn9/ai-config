@@ -14,3 +14,7 @@ Notes:
 - Remote form once this repo is pushed (private works through git/gh/SSH auth): `bunx skills add <owner>/ai-config --skill <name>`.
 
 Public skills I use (source, what they do, install line): see `public.md`. Add a row there when you start using a new one.
+
+Triggering: a description alone loads a skill unreliably (about half the runs for `cloud-network-diagram`; 1 of 12 in the skill-creator trigger test). Where a skill matters, also put one line in the project's AGENTS.md or steering, for example:
+
+    Diagram requests (cloud, network, flow, IP plan, route tables): load the `cloud-network-diagram` skill first.
