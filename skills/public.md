@@ -96,8 +96,8 @@ Notes:
 ## Diagrams
 
 - `drawio-skill` | Agents365-ai/drawio-skill | diagrams | Create, edit, lint and export draw.io diagrams (architecture, ERD, UML, C4).
-- `diagrams` (private, `skills/diagrams/`) | this repo | diagrams, drawio | My house style on top of `drawio-skill` and `draw-io`. Needs both installed (`references/sources.md` has pinned install lines).
-- `draw-io` | Sunwood-ai-labs/draw-io-skill | diagrams, qa | SVG overlap linter used by `diagrams`. My `drawio-lint` copy in gems-rdev-devops is a trim of it.
+- `cloud-network-diagram` (private, `skills/cloud-network-diagram/`) | this repo | diagrams, cloud, network, drawio | Architecture, network, flow, IP-plan and route-table diagrams in my house style, on top of `drawio-skill` and `draw-io`. Needs both (`references/sources.md`).
+- `draw-io` | Sunwood-ai-labs/draw-io-skill | diagrams, qa | SVG overlap linter used by `cloud-network-diagram`. My `drawio-lint` copy in gems-rdev-devops is a trim of it.
 - `excalidraw-diagram` | probably coleam00/excalidraw-diagram-skill (unconfirmed) | diagrams | Was in Kiro only, SKILL.md without its render script. Not scored by a behavior test.
 
 ## Video (HyperFrames)

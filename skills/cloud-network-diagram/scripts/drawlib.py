@@ -55,10 +55,6 @@ def subnet(x, y, w, h, title, routed=False):
     return put(nid("s"), title, st, x, y, w, h)
 
 
-def strip(x, y, w, h, title):
-    st = (f"rounded=1;arcSize=6;html=1;whiteSpace=wrap;fillColor=#F7F9FC;strokeColor=#C7D3E3;strokeWidth=1;dashed=1;dashPattern=4 3;"
-          f"align=left;verticalAlign=middle;spacingLeft=12;fontSize=12;fontColor={MUTED};fontFamily={FONT};")
-    return put(nid("s"), title, st, x, y, w, h)
 
 
 def icon(kind, x, y, color):
