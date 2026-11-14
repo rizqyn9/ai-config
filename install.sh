@@ -11,6 +11,7 @@ for f in "$R"/kiro/steering/*.md; do link "$f" ~/.kiro/steering/"$(basename "$f"
 for f in "$R"/kiro/settings/*;    do link "$f" ~/.kiro/settings/"$(basename "$f")"; done
 link "$R/omp/config.yml" ~/.omp/agent/config.yml
 link "$R/omp/RULES.md"   ~/.omp/agent/RULES.md
+link "$R/omp/hooks/pre" ~/.omp/agent/hooks/pre
 link "$R/opencode/opencode.jsonc" ~/.config/opencode/opencode.jsonc
 # settings.json is not symlinked: Orca injects hooks/statusLine and the Bedrock token lives there.
 [ -e ~/.claude/settings.json ] && echo "NOTE: merge $R/claude/settings.json into ~/.claude/settings.json by hand (and set AWS_BEARER_TOKEN_BEDROCK)" \

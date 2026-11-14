@@ -2,7 +2,7 @@ setupVersion: 3
 memory:
   backend: local
 modelRoles:
-  default: amazon-bedrock/global.anthropic.claude-sonnet-5-5:medium
+  default: amazon-bedrock/global.anthropic.claude-fable-5-2
   slow: amazon-bedrock/global.anthropic.claude-opus-5-5:high
   plan: "@slow"
   task: amazon-bedrock/global.anthropic.claude-sonnet-5-5:medium
@@ -18,6 +18,12 @@ task:
   enableLsp: true
 compaction:
   thresholdTokens: 250000
+  modelThresholds:
+    # Haiku has a 100K window; the global 250K trigger would never fire.
+    "amazon-bedrock/global.anthropic.claude-haiku-5-5*": "80%"
+prewalk:
+  enabled: true
+  into: "@task"
 disabledProviders:
   - ollama
   - llama.cpp
