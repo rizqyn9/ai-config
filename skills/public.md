@@ -95,6 +95,8 @@ Notes:
 ## Diagrams
 
 - `drawio-skill` | Agents365-ai/drawio-skill | diagrams | Create, edit, lint and export draw.io diagrams (architecture, ERD, UML, C4).
+- `diagrams` (private, `skills/diagrams/`) | this repo | diagrams, drawio | My house style on top of `drawio-skill` + `drawio-lint`. Use this one for architecture and network diagrams.
+- `drawio-lint` | unknown ("Sunwood trimmed" in gems-rdev-devops) | diagrams, qa | SVG overlap check used by `diagrams`. Not in a lock file; copy from gems-rdev-devops/.agents/skills/drawio-lint.
 - `excalidraw-diagram` | unknown | diagrams | Was in Kiro only. Find with `bunx skills find excalidraw`.
 
 ## Video (HyperFrames)
