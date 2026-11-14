@@ -21,6 +21,8 @@ One line per skill, so `grep -i <word> public.md` finds it. Format: `name | sour
 | `vercel-labs/skills` | https://github.com/vercel-labs/skills | skills CLI |
 | `pbakaus/impeccable` | https://github.com/pbakaus/impeccable | frontend design |
 | `nextlevelbuilder/ui-ux-pro-max-skill` | https://github.com/nextlevelbuilder/ui-ux-pro-max-skill | UI/UX |
+| `cloudflare/skills` | https://github.com/cloudflare/skills | official Cloudflare (Workers, wrangler, frameworks) |
+| `@tanstack/intent` | https://tanstack.com/intent | skills shipped inside npm packages, version-matched |
 | `nutlope/hallmark` | https://github.com/nutlope/hallmark | design |
 | `Agents365-ai/drawio-skill` | https://github.com/Agents365-ai/drawio-skill | diagrams |
 
@@ -74,6 +76,21 @@ One line per skill, so `grep -i <word> public.md` finds it. Format: `name | sour
 - `design-taste-frontend` | leonxlnx/taste-skill | frontend, design | Anti-slop landing pages and portfolios with a real design system.
 - `hallmark` | nutlope/hallmark | design | Was in Kiro only. Not reviewed.
 - `shadcn-components` ★, `shadcn-theming` ★, `shadcn-registries` | unknown | frontend, shadcn | Source not in the lock file. Find with `bunx skills find shadcn`.
+
+## Stack skills (Bun, Elysia, Drizzle, TanStack Start, Cloudflare)
+
+Found Nov 2026 for the arizta stack. Prefer skills the tool's own maker ships; they track the installed version.
+
+- `@tanstack/intent` | npm | tanstack, drizzle, logtape | Skills ship inside npm packages, so they match the installed version. `bun add -d @tanstack/intent`, set `intent.skills` in package.json (e.g. `["@tanstack/*","drizzle-kit"]`), then `bunx intent install` (writes a block in AGENTS.md). Check what is found: `bunx @tanstack/intent@latest list`. Found without any install: TanStack Start/Router, drizzle-kit (8 skills), LogTape. Needs `knip` ignoreDependencies if you use knip.
+- `workers-best-practices`, `wrangler`, `frameworks-on-cloudflare` | cloudflare/skills | cloudflare, workers | Official. `bunx skills add cloudflare/skills --skill <name> -a kiro-cli`. Others in the repo: `durable-objects`, `agents-sdk`, `workers-development`, `workers-profiling`, `cf-cli`, `cloudflare-app-bootstrap`.
+- `react-best-practices`, `web-design-guidelines` | vercel-labs/agent-skills | react, review | Vercel. React rules lean Next.js; pick only what fits.
+- Better Auth | better-auth/skills | auth | Official pack, not installed.
+- Neon | neondatabase/agent-skills | postgres | Official, not read in detail.
+- No official Elysia or Bun skill found.
+
+Notes:
+- `bunx skills add` writes real copies to `.kiro/skills`; move them to `.agents/skills` and symlink if the project keeps that layout.
+- The CLI upgrades `skills-lock.json` v1 to v2 and blanks hashes it cannot verify; recompute them (algorithm in vercel-labs/skills README) or `git diff` the lock.
 
 ## Diagrams
 
