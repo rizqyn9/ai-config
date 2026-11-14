@@ -25,6 +25,7 @@ One line per skill, so `grep -i <word> public.md` finds it. Format: `name | sour
 | `@tanstack/intent` | https://tanstack.com/intent | skills shipped inside npm packages, version-matched |
 | `nutlope/hallmark` | https://github.com/nutlope/hallmark | design |
 | `Agents365-ai/drawio-skill` | https://github.com/Agents365-ai/drawio-skill | diagrams |
+| `Sunwood-ai-labs/draw-io-skill` | https://github.com/Sunwood-ai-labs/draw-io-skill | diagram lint |
 
 ## Engineering workflow
 
@@ -95,9 +96,9 @@ Notes:
 ## Diagrams
 
 - `drawio-skill` | Agents365-ai/drawio-skill | diagrams | Create, edit, lint and export draw.io diagrams (architecture, ERD, UML, C4).
-- `diagrams` (private, `skills/diagrams/`) | this repo | diagrams, drawio | My house style on top of `drawio-skill` + `drawio-lint`. Use this one for architecture and network diagrams.
-- `drawio-lint` | unknown ("Sunwood trimmed" in gems-rdev-devops) | diagrams, qa | SVG overlap check used by `diagrams`. Not in a lock file; copy from gems-rdev-devops/.agents/skills/drawio-lint.
-- `excalidraw-diagram` | unknown | diagrams | Was in Kiro only. Find with `bunx skills find excalidraw`.
+- `diagrams` (private, `skills/diagrams/`) | this repo | diagrams, drawio | My house style on top of `drawio-skill` and `draw-io`. Needs both installed (`references/sources.md` has pinned install lines).
+- `draw-io` | Sunwood-ai-labs/draw-io-skill | diagrams, qa | SVG overlap linter used by `diagrams`. My `drawio-lint` copy in gems-rdev-devops is a trim of it.
+- `excalidraw-diagram` | probably coleam00/excalidraw-diagram-skill (unconfirmed) | diagrams | Was in Kiro only, SKILL.md without its render script. Not scored by a behavior test.
 
 ## Video (HyperFrames)
 

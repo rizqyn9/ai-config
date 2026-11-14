@@ -1,11 +1,16 @@
 ---
 name: diagrams
-description: Architect-style draw.io diagrams (cloud, network, flow, IP plan, route tables) built from a Python script with a house style, exported and reviewed. Use before creating, editing or reviewing any architecture or network diagram. Extends the public drawio-skill and drawio-lint; does not replace them.
+description: Architect-style draw.io diagrams (cloud, network, flow, IP plan, route tables) built from a Python script with a house style, exported and reviewed. Use before creating, editing or reviewing any architecture or network diagram. Extends the public drawio-skill and draw-io skills; needs them installed.
 ---
 
 # Diagrams: think like a cloud architect
 
-Extends public skills: `drawio-skill` (Agents365-ai/drawio-skill) for generating and exporting, `drawio-lint` for overlap QA. The public skill's default style is not used; this one defines the style.
+## Requires (public skills, not copied here)
+- `drawio-skill` (Agents365-ai): draw.io XML rules, export commands, troubleshooting. Read it for anything about the file format or the CLI.
+- `draw-io` (Sunwood-ai-labs): the SVG overlap linter used in step 5.
+Install lines, licences and pinned commits: `references/sources.md`. Check them with `scripts/check-deps.sh`.
+
+This skill only adds a house style and templates on top. Where it is silent, follow `drawio-skill`; where they conflict on style, this skill wins.
 
 Build with `scripts/drawlib.py` (helpers `zone`, `subnet`, `card`, `edge`, `header`, `legend`, `end_page`, `write`). Start from `scripts/example.py`. A finished page set lives next to its source doc as `<name>.py`, `<name>.drawio`, `<name>.png`.
 
@@ -36,7 +41,7 @@ Build with `scripts/drawlib.py` (helpers `zone`, `subnet`, `card`, `edge`, `head
 
 ## 5. Build and review (all required)
 1. Generate `.drawio` from the script, never hand-edited XML. Several pages in one file.
-2. Export SVG: `drawio -x -f svg -e -o <name>.drawio.svg <name>.drawio`, then `node <drawio-lint>/scripts/check-drawio-svg-overlaps.mjs <name>.drawio.svg` must print `OK`. Delete the `.svg`.
+2. Export SVG: `drawio -x -f svg -e -o <name>.drawio.svg <name>.drawio`, then `node <draw-io skill dir>/scripts/check-drawio-svg-overlaps.mjs <name>.drawio.svg` must print `OK` (it prints to stderr). Delete the `.svg`.
 3. Export PNG per page (`drawio -x -f png -s 2 -p <index> -o <name>-<n>.png <name>.drawio`) and read it as a reviewer would: can the question be answered in 10 seconds? Any crossing line, overlap, label on a card, tiny text, empty area, or fact without a source? Fix and re-export. Lint passing is not enough.
 4. Commit `.py`, `.drawio`, `.png`. Not the `.svg`.
 
