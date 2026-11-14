@@ -8,12 +8,6 @@
   }
   },
   "mcp": {
-    "codebase-memory-mcp": {
-      "command": [
-        "/Users/rizqynugroho/.local/bin/codebase-memory-mcp"
-      ],
-      "type": "local"
-    },
     "paper": {
       "type": "local",
       "command": [
