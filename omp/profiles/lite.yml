@@ -1,0 +1,6 @@
+# Cheap: no Opus, advisor off. Everything else comes from config.yml.
+modelRoles:
+  default: amazon-bedrock/global.anthropic.claude-sonnet-5-5:medium
+  slow: amazon-bedrock/global.anthropic.claude-sonnet-5-5:high
+advisor:
+  enabled: false

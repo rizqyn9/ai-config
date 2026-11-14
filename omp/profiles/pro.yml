@@ -1,0 +1,6 @@
+# Quality first: Opus for default, planning and advisor.
+modelRoles:
+  default: amazon-bedrock/global.anthropic.claude-opus-5-5:high
+  slow: amazon-bedrock/global.anthropic.claude-opus-5-5:xhigh
+  task: amazon-bedrock/global.anthropic.claude-sonnet-5-5:high
+  advisor: amazon-bedrock/global.anthropic.claude-opus-5-5:high
