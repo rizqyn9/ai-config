@@ -19,8 +19,7 @@ task:
 compaction:
   thresholdTokens: 250000
   modelThresholds:
-    # Haiku has a 100K window; the global 250K trigger would never fire.
-    "amazon-bedrock/global.anthropic.claude-haiku-5-5*": "80%"
+    amazon-bedrock/global.anthropic.claude-haiku-5-5*: 80%
 prewalk:
   enabled: true
   into: "@task"
@@ -59,3 +58,4 @@ snapcompact:
 update:
   auto: true
 defaultThinkingLevel: auto
+extendedContext: true
