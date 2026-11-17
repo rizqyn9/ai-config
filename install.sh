@@ -12,6 +12,16 @@ for f in "$R"/kiro/settings/*;    do link "$f" ~/.kiro/settings/"$(basename "$f"
 link "$R/omp/config.yml" ~/.omp/agent/config.yml
 link "$R/omp/RULES.md"   ~/.omp/agent/RULES.md
 link "$R/opencode/opencode.jsonc" ~/.config/opencode/opencode.jsonc
+link "$R/opencode/AGENTS.md" ~/.config/opencode/AGENTS.md
+for f in "$R"/opencode/agents/*.md; do link "$f" ~/.config/opencode/agents/"$(basename "$f")"; done
+# opencode.jsonc reads the 9router key from this file instead of holding it inline.
+if [ ! -s ~/.secrets/9router-key ] && [ -n "${AI_9ROUTER:-}" ]; then
+  mkdir -p ~/.secrets && chmod 700 ~/.secrets
+  printf '%s\n' "$AI_9ROUTER" > ~/.secrets/9router-key && chmod 600 ~/.secrets/9router-key
+  echo "wrote ~/.secrets/9router-key from AI_9ROUTER"
+elif [ ! -s ~/.secrets/9router-key ]; then
+  echo "NOTE: ~/.secrets/9router-key is missing; the 9r provider will have no API key."
+fi
 # settings.json is not symlinked: Orca injects hooks/statusLine and the Bedrock token lives there.
 [ -e ~/.claude/settings.json ] && echo "NOTE: merge $R/claude/settings.json into ~/.claude/settings.json by hand (and set AWS_BEARER_TOKEN_BEDROCK)" \
   || { cp "$R/claude/settings.json" ~/.claude/settings.json; echo "copied claude settings; set AWS_BEARER_TOKEN_BEDROCK"; }

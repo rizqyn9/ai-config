@@ -1,21 +1,433 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "provider": {
-    "amazon-bedrock": {
-      "options": {
-        "region": "us-east-1",
-      }
-  }
+  "plugins": [
+    "superpowers@git+https://github.com/obra/superpowers.git"
+  ],
+  "model": "9r/free-coding",
+  "shell": "zsh",
+  "formatter": true,
+  "compaction": {
+    "auto": true,
+    "keep": {
+      "tokens": 15000,
+    },
+    "buffer": "15%",
   },
-  "mcp": {
-    "paper": {
-      "type": "local",
-      "command": [
-        "/Users/rizqynugroho/.paper/bin/paper",
-        "mcp"
+  "experimental": {
+    "todo": true,
+  },
+  "providers": {
+    "9r": {
+      "name": "9Router",
+      "env": [
+        "AI_9ROUTER"
       ],
-      "enabled": true
+      "package": "@opencode/ai/providers/openai-compatible",
+      "settings": {
+        "baseURL": "http://localhost:20128/v1",
+        "apiKey": "{file:~/.secrets/9router-key}",
+      },
+      "models": {
+        "free-coding": {
+          "name": "9R · Free first",
+          "limit": {
+            "context": 128000,
+            "output": 32000,
+          },
+        },
+        "thb-free": {
+          "name": "9R · THB free",
+          "limit": {
+            "context": 200000,
+            "output": 32000,
+          },
+        },
+        "daily-coding": {
+          "name": "9R · Daily",
+          "limit": {
+            "context": 200000,
+            "output": 32000,
+          },
+        },
+        "fast-cheap": {
+          "name": "9R · Fast & cheap",
+          "limit": {
+            "context": 200000,
+            "output": 32000,
+          },
+        },
+        "reasoning-coding": {
+          "name": "9R · Reasoning",
+          "limit": {
+            "context": 1000000,
+            "output": 128000,
+          },
+        },
+        "vision-coding": {
+          "name": "9R · Vision",
+          "limit": {
+            "context": 128000,
+            "output": 64000,
+          },
+        },
+      },
+    },
+    "sp": {
+      "name": "Sumopod Rdev",
+      "env": [
+        "AI_SUMAPOD_RDEV"
+      ],
+      "package": "@opencode/ai/providers/openai-compatible",
+      "settings": {
+        "baseURL": "https://ai.sumopod.com/v1",
+      },
+      "models": {
+        "claude-haiku-4-5": {
+          "name": "Claude Haiku 4 5",
+          "limit": {
+            "context": 200000
+          },
+        },
+        "claude-haiku-5-5": {
+          "name": "Claude Haiku 5 5",
+          "limit": {
+            "context": 1000000
+          }
+        },
+        "claude-opus-4-8": {
+          "name": "Claude Opus 4 8",
+          "limit": {
+            "context": 1000000
+          }
+        },
+        "claude-opus-5": {
+          "name": "Claude Opus 5",
+          "limit": {
+            "context": 1000000
+          }
+        },
+        "claude-opus-5-5": {
+          "name": "Claude Opus 5 5",
+          "limit": {
+            "context": 1000000
+          }
+        },
+        "claude-sonnet-5": {
+          "name": "Claude Sonnet 5",
+          "limit": {
+            "context": 1000000
+          }
+        },
+        "claude-sonnet-5-5": {
+          "name": "Claude Sonnet 5 5",
+          "limit": {
+            "context": 1000000
+          }
+        },
+        "deepseek-flash": {
+          "name": "Deepseek Flash",
+          "limit": {
+            "context": 1000000
+          }
+        },
+        "deepseek-v4-flash": {
+          "name": "Deepseek V4 Flash",
+          "limit": {
+            "context": 1000000
+          }
+        },
+        "deepseek-v4-pro": {
+          "name": "Deepseek V4 Pro",
+          "limit": {
+            "context": 1000000
+          }
+        },
+        "deepseek-v4.1-flash-1017": {
+          "name": "Deepseek V4.1 Flash 1017",
+          "limit": {
+            "context": 1000000
+          }
+        },
+        "deepseek-v4.1-flash:fast": {
+          "name": "Deepseek V4.1 Flash Fast",
+          "limit": {
+            "context": 1000000
+          }
+        },
+        "deepseek-v4.1-flash:netra": {
+          "name": "Deepseek V4.1 Flash Netra",
+          "limit": {
+            "context": 1000000
+          }
+        },
+        "gemini/gemini-3-flash-preview": {
+          "name": "Gemini / Gemini 3 Flash Preview",
+          "limit": {
+            "context": 1048576
+          }
+        },
+        "gemini/gemini-3.1-flash-lite": {
+          "name": "Gemini / Gemini 3.1 Flash Lite",
+          "limit": {
+            "context": 1048576
+          }
+        },
+        "gemini/gemini-3.1-pro-preview": {
+          "name": "Gemini / Gemini 3.1 Pro Preview",
+          "limit": {
+            "context": 1048576
+          }
+        },
+        "gemini/gemini-3.5-flash": {
+          "name": "Gemini / Gemini 3.5 Flash",
+          "limit": {
+            "context": 1048576
+          }
+        },
+        "gemini/gemini-3.5-flash-lite": {
+          "name": "Gemini / Gemini 3.5 Flash Lite",
+          "limit": {
+            "context": 1048576
+          }
+        },
+        "gemini/gemini-3.7-flash": {
+          "name": "Gemini / Gemini 3.7 Flash",
+          "limit": {
+            "context": 1048576
+          }
+        },
+        "gemini/gemini-3.8-flash": {
+          "name": "Gemini / Gemini 3.8 Flash",
+          "limit": {
+            "context": 1048576
+          }
+        },
+        "gemini/gemini-4-argon": {
+          "name": "Gemini / Gemini 4 Argon",
+          "limit": {
+            "context": 1048576
+          }
+        },
+        "glm-5.2": {
+          "name": "Glm 5.2",
+          "limit": {
+            "context": 1000000
+          }
+        },
+        "glm-5.3": {
+          "name": "Glm 5.3",
+          "limit": {
+            "context": 1000000
+          }
+        },
+        "glm-5.3-flash": {
+          "name": "Glm 5.3 Flash",
+          "limit": {
+            "context": 1000000
+          }
+        },
+        "glm-5.3-flash:fast": {
+          "name": "Glm 5.3 Flash Fast",
+          "limit": {
+            "context": 1000000
+          }
+        },
+        "gpt-4.1": {
+          "name": "Gpt 4.1",
+          "limit": {
+            "context": 1047576
+          }
+        },
+        "gpt-4.1-mini": {
+          "name": "Gpt 4.1 Mini",
+          "limit": {
+            "context": 1047576
+          }
+        },
+        "gpt-4o": {
+          "name": "Gpt 4O",
+          "limit": {
+            "context": 128000
+          }
+        },
+        "gpt-4o-mini": {
+          "name": "Gpt 4O Mini",
+          "limit": {
+            "context": 128000
+          }
+        },
+        "gpt-5": {
+          "name": "Gpt 5",
+          "limit": {
+            "context": 272000
+          }
+        },
+        "gpt-5-mini": {
+          "name": "Gpt 5 Mini",
+          "limit": {
+            "context": 272000
+          }
+        },
+        "gpt-5-nano": {
+          "name": "Gpt 5 Nano",
+          "limit": {
+            "context": 272000
+          }
+        },
+        "gpt-5.4": {
+          "name": "Gpt 5.4",
+          "limit": {
+            "context": 1050000
+          }
+        },
+        "gpt-5.4-mini": {
+          "name": "Gpt 5.4 Mini",
+          "limit": {
+            "context": 272000
+          }
+        },
+        "gpt-5.4-nano": {
+          "name": "Gpt 5.4 Nano",
+          "limit": {
+            "context": 272000
+          }
+        },
+        "gpt-5.6-luna": {
+          "name": "Gpt 5.6 Luna",
+          "limit": {
+            "context": 922000
+          }
+        },
+        "gpt-5.6-sol": {
+          "name": "Gpt 5.6 Sol",
+          "limit": {
+            "context": 922000
+          }
+        },
+        "gpt-5.6-terra": {
+          "name": "Gpt 5.6 Terra",
+          "limit": {
+            "context": 922000
+          }
+        },
+        "gpt-6-luna": {
+          "name": "Gpt 6 Luna",
+          "limit": {
+            "context": 1050000
+          }
+        },
+        "grok-4.7": {
+          "name": "Grok 4.7",
+          "limit": {
+            "context": 500000
+          }
+        },
+        "hy4": {
+          "name": "Hy4",
+          "limit": {
+            "context": 960000
+          }
+        },
+        "hy4-flash": {
+          "name": "Hy4 Flash",
+          "limit": {
+            "context": 960000
+          }
+        },
+        "jev-1.13.0": {
+          "name": "Jev 1.13.0",
+          "limit": {
+            "context": 65536
+          }
+        },
+        "jev-1.14.0": {
+          "name": "Jev 1.14.0",
+          "limit": {
+            "context": 65536
+          }
+        },
+        "kimi-k3": {
+          "name": "Kimi K3",
+          "limit": {
+            "context": 1000000
+          }
+        },
+        "mimo-v2.6-flash": {
+          "name": "Mimo V2.6 Flash",
+          "limit": {
+            "context": 1100000
+          }
+        },
+        "mimo-v2.6-pro": {
+          "name": "Mimo V2.6 Pro",
+          "limit": {
+            "context": 1100000
+          }
+        },
+        "mimo-v2.6-pro-ultraspeed": {
+          "name": "Mimo V2.6 Pro Ultraspeed",
+          "limit": {
+            "context": 1100000
+          }
+        },
+        "MiniMax-M3.1-Flash": {
+          "name": "Minimax M3.1 Flash",
+          "limit": {
+            "context": 1000000
+          }
+        },
+        "qwen3.7-plus": {
+          "name": "Qwen3.7 Plus",
+          "limit": {
+            "context": 1000000
+          }
+        },
+        "qwen3.8-flash": {
+          "name": "Qwen3.8 Flash",
+          "limit": {
+            "context": 1000000
+          }
+        },
+        "qwen3.8-max": {
+          "name": "Qwen3.8 Max",
+          "limit": {
+            "context": 1000000
+          }
+        },
+        "qwen4-max": {
+          "name": "Qwen4 Max",
+          "limit": {
+            "context": 1000000
+          }
+        },
+        "seed-2-0-code": {
+          "name": "Seed 2 0 Code",
+          "limit": {
+            "context": 256000
+          }
+        },
+        "seed-2-0-lite": {
+          "name": "Seed 2 0 Lite",
+          "limit": {
+            "context": 224000
+          }
+        },
+        "seed-2-0-mini": {
+          "name": "Seed 2 0 Mini",
+          "limit": {
+            "context": 224000
+          }
+        },
+        "seed-2-0-pro": {
+          "name": "Seed 2 0 Pro",
+          "limit": {
+            "context": 256000
+          }
+        }
+      }
     }
   },
-  "shell": "zsh"
+  "mcp": {
+    "servers": {}
+  },
 }

@@ -10,9 +10,6 @@ Snapshot of the local 9router gateway setup that fronts OpenCode. Live data live
 - `settings.json` — token saver / combo strategy settings, exported from `/api/settings`.
 - `provider-nodes.json` — custom OpenAI-compatible nodes (base URLs only).
 - `providers.json` — connection metadata (no `data` field, no API keys).
-- `opencode-live-sanitized.jsonc` — snapshot of the live `~/.config/opencode/opencode.jsonc`
-  with the inline 9router API key removed. Set `AI_9ROUTER` (or add `settings.apiKey`
-  locally) when using it.
 - `apply.sh` — idempotent restore of combos + settings over the 9router HTTP API.
 - `render.py` — helper used by `apply.sh` to turn the snapshots into API payloads.
 
