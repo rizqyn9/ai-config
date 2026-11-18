@@ -45,22 +45,22 @@
         "daily-coding": {
           "name": "9R · Daily",
           "limit": {
-            "context": 200000,
+            "context": 128000,
             "output": 32000,
           },
         },
         "fast-cheap": {
           "name": "9R · Fast & cheap",
           "limit": {
-            "context": 200000,
+            "context": 128000,
             "output": 32000,
           },
         },
         "reasoning-coding": {
           "name": "9R · Reasoning",
           "limit": {
-            "context": 1000000,
-            "output": 128000,
+            "context": 128000,
+            "output": 32000,
           },
         },
         "vision-coding": {

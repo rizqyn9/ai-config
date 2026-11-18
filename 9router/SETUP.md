@@ -21,12 +21,14 @@ Combo harus dibuat dengan `kind: "llm"` agar tampil di halaman **Combo & Vision 
 
 Prinsip urutan: **free → pecutopus → sumopod**. Model mahal (Claude Opus/Sonnet, GPT-6) sengaja tidak dijadikan andalan. `free-coding` dan `thb-free` sengaja murni free.
 
-- **free-coding** — 4 model `:free` THB → `oc/big-pickle` → 2 model free OpenRouter
-- **thb-free** — `thb/deepseek-v4.1-flash:free` → `thb/deepseek-v4-flash:free` → `thb/mimo-v2.6-flash:free` → `thb/mimo-v2.5:free` → `oc/big-pickle`
-- **daily-coding** — free (THB, OC, OpenRouter) → `pecutopus/pecut/deepseek-v4.1-flash` → `pecutopus/pecut/glm-5.3-flash` → `sp/deepseek-v4-flash` → `sp/glm-5.3-flash`
-- **fast-cheap** — free (THB, OC) → `pecutopus/pecut/deepseek-v4.1-flash-ultrafast` → `pecutopus/pecut/glm-5.3-flash` → `sp/deepseek-v4-flash` → `sp/hy4-flash`
-- **reasoning-coding** — `thb/deepseek-v4.1-flash:free` → `pecutopus/pecut/deepseek-v4.1-flash` → `pecutopus/pecut/glm-5.3` → `sp/deepseek-v4-flash` → `sp/gpt-5.6-sol` (terakhir, hanya jika butuh kualitas ekstra)
-- **vision-coding** — free (THB, OpenRouter) → `pecutopus/pecut/gemini-3.1-flash-lite` → `pecutopus/pecut/qwen3.8-flash` → `sp/gemini/gemini-3.5-flash-lite` → `sp/gemini/gemini-3.8-flash`
+Tier free diambil dari semua provider free yang aktif: **THB, SinarCloud (`scloud`), OpenCode (`oc`), OpenRouter**. Hanya model free yang dipakai dari provider itu; provider berbayar hanya `pecutopus` lalu `sumopod` (`sp`).
+
+- **free-coding** — 4 `:free` THB → `scloud/deepseek/deepseek-v4-1-flash-free` → `oc/deepseek-v4.1-flash-free` → `thb/mimo-v2.6-flash:free` → `thb/deepseek-v4-flash:free` → `oc/big-pickle` → `thb/mimo-v2.5:free` → 3 free OpenRouter. Murni free.
+- **thb-free** — 4 `:free` THB → `scloud/deepseek/deepseek-v4-1-flash-free` → `oc/deepseek-v4.1-flash-free` → `oc/big-pickle`. Murni free.
+- **daily-coding** — free (THB, SinarCloud, OC, OpenRouter) → `pecutopus/pecut/deepseek-v4.1-flash` → `pecutopus/pecut/glm-5.3-flash` → `sp/deepseek-v4-flash` → `sp/glm-5.3-flash`
+- **fast-cheap** — free (THB, OC, SinarCloud, OpenRouter) → `pecutopus/pecut/deepseek-v4.1-flash-ultrafast` → `pecutopus/pecut/glm-5.3-flash` → `sp/deepseek-v4-flash` → `sp/hy4-flash`
+- **reasoning-coding** — free reasoning (THB, SinarCloud, OC, OpenRouter) → `pecutopus/pecut/deepseek-v4.1-flash` → `pecutopus/pecut/glm-5.3` → `sp/deepseek-v4-pro` → `sp/gpt-5.6-sol` (terakhir; cap input asli 922k, bukan 1M)
+- **vision-coding** — free (THB, OC, OpenRouter: `nemotron-3.5-super-vl`, `ling-3.2-flash`, `dots-3-note-preview`, `particle-1`) → `pecutopus/pecut/gemini-3.1-flash-lite` → `sp/gemini/gemini-3.5-flash-lite` → `sp/gemini/gemini-3.8-flash`
 
 Catatan harga: 9router tidak mengekspos harga PecutOpus/Sumopod lewat `/api/pricing`. Pilihan murah didasarkan pada kelas model (flash/nano/lite) dan referensi harga publik; semua kandidat sudah diuji HTTP 200. Urutan fallback pecutopus → sumopod sudah diuji dengan combo sementara (model invalid di urutan pertama; request jatuh ke `pecut/deepseek-v4.1-flash`).
 
@@ -46,6 +48,8 @@ Di `~/.config/opencode/opencode.jsonc`:
 - Provider `9r` → `http://localhost:20128/v1`, API key dibaca dari file: `settings.apiKey: "{file:~/.secrets/9router-key}"` (dibuat `install.sh` dari env `AI_9ROUTER`; env itu sendiri tidak dipakai saat runtime).
 - 6 combo didaftarkan sebagai model: `free-coding`, `thb-free`, `daily-coding`, `fast-cheap`, `reasoning-coding`, `vision-coding`.
 - Provider `sp` (Sumopod langsung) sengaja **dibiarkan** sesuai permintaan.
+
+Batas context/output tiap combo di `opencode.jsonc` = cap real terkecil dari salah satu anggotanya (context) dan max-output terkecil (output), agar combo tidak pernah kena 400 dari provider. Saat ini 128k/32k untuk semua combo campuran, 200k/32k untuk `thb-free`. Detail + cara cek cap ada di `README.md`.
 
 Catatan: `9router show`/`connect` membaca `opencode.json`, bukan `opencode.jsonc`, jadi CLI connect tidak dipakai.
 
