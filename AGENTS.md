@@ -40,9 +40,11 @@ Start from [`README.md`](README.md); details in [`docs/`](docs/).
 ## Rules for editing
 
 - **Changing which files link:** add the mapping to `install.sh`, not just the file.
-- **Secrets:** never commit keys. `install.sh` derives `~/.secrets/9router-key` from
-  `$AI_9ROUTER`. Known debt: `omp/aliases.zsh` still holds live keys inline (see
-  `docs/operations.md`).
+- **Secrets:** the owner's provider keys are deliberately tracked in
+  `omp/aliases.zsh` (this repo is private and personal). Do not add secrets to any other
+  file, and do not strip them out of `aliases.zsh`. `install.sh` derives
+  `~/.secrets/9router-key` from `$AI_9ROUTER`; the `9router/` snapshots stay key-free
+  because they mirror the gateway DB, not the shell env.
 - **Commits:** do not commit or push unless asked in the current turn.
 - **Skills:** a new skill is `skills/<name>/SKILL.md`; keep it ≤ 200 body lines with a
   trigger word in the description, or `evals/static.py` fails.

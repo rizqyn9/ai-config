@@ -27,13 +27,16 @@ Manual steps it cannot do:
 
 ## Secrets
 
-- Live secrets never belong in tracked files; pass them through env vars.
-- 9router snapshots are deliberately key-free — provider credentials live only in the
-  gateway DB.
-- **Known gap:** `omp/aliases.zsh` currently contains real `AI_SUMAPOD_RDEV` and
-  `AI_9ROUTER` values inline. Rotate both keys, move them to an untracked file (for
-  example `~/.secrets/env.zsh`) and `source` that from `~/.zshrc.local`, then drop them
-  from `aliases.zsh`.
+- `omp/aliases.zsh` is the one place provider keys are tracked on purpose: it holds live
+  `AI_SUMAPOD_RDEV` and `AI_9ROUTER` values, so a fresh machine has them after a clone
+  plus `source`. It is only appended to `~/.zshrc.local`, never overwritten.
+- Keys go nowhere else. `9router/` snapshots stay key-free (they mirror the gateway DB),
+  and `claude/settings.json` stays sanitized.
+- `install.sh` writes `~/.secrets/9router-key` (0600) from `$AI_9ROUTER` when missing, so
+  OpenCode needs no inline key.
+- Rotating a key means editing `omp/aliases.zsh`, re-running `install.sh` to refresh
+  `~/.secrets/9router-key` (delete that file first), and updating the matching 9router
+  connection in the dashboard.
 
 ## 9router combos
 

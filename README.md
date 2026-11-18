@@ -63,11 +63,13 @@ python3 evals/diagrams_score.py <workdir> > dist/behavior.json # score that run
 
 ## Secrets
 
-Keep secrets out of the repo; use env vars. `install.sh` turns `$AI_9ROUTER` into
-`~/.secrets/9router-key` (mode 0600). `claude/settings.json` is a sanitized copy (no
-Bedrock token, no Orca-injected hooks/statusLine), so it is copied or merged, not
-symlinked. Caveat: `omp/aliases.zsh` currently holds live keys inline — see
-[`docs/operations.md`](docs/operations.md).
+Provider keys live in `omp/aliases.zsh`, tracked deliberately (private repo) so a clone
+plus `install.sh` is enough. Nothing else holds secrets: `9router/` snapshots mirror the
+gateway DB and stay key-free, and `claude/settings.json` is a sanitized copy (no Bedrock
+token, no Orca-injected hooks/statusLine), so it is copied or merged, not symlinked.
+
+`install.sh` turns `$AI_9ROUTER` into `~/.secrets/9router-key` (mode 0600). Rotation
+steps are in [`docs/operations.md`](docs/operations.md).
 
 ## Notes
 
