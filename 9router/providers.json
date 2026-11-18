@@ -20,7 +20,7 @@
       "isActive": false,
       "testStatus": "unavailable",
       "createdAt": "2026-11-17T17:50:07.471Z",
-      "updatedAt": "2026-11-17T19:14:07.383Z"
+      "updatedAt": "2026-11-17T20:05:38.087Z"
     },
     {
       "id": "6a237e48-82f0-451d-9e9f-4809ed5688f1",
@@ -42,7 +42,7 @@
       "isActive": true,
       "testStatus": "active",
       "createdAt": "2026-11-17T19:38:17.700Z",
-      "updatedAt": "2026-11-17T19:44:33.596Z"
+      "updatedAt": "2026-11-18T01:45:13.432Z"
     },
     {
       "id": "pecutopus-connection",
@@ -54,6 +54,61 @@
       "testStatus": "active",
       "createdAt": "2026-11-17T19:54:06.833Z",
       "updatedAt": "2026-11-17T19:54:25.746Z"
+    },
+    {
+      "id": "4f340a08-e572-4654-b648-2131a0d955ba",
+      "provider": "openrouter",
+      "name": "dutaabadi",
+      "authType": "apikey",
+      "priority": 1,
+      "isActive": true,
+      "testStatus": "active",
+      "createdAt": "2026-11-18T01:38:06.634Z",
+      "updatedAt": "2026-11-18T01:38:06.634Z"
+    },
+    {
+      "id": "7554382d-ed9d-4985-a290-c76c26e120a7",
+      "provider": "openai-compatible-chat-62b40173-985f-4839-96d8-44ae14644270",
+      "name": "dutaabadi",
+      "authType": "apikey",
+      "priority": 1,
+      "isActive": true,
+      "testStatus": "active",
+      "createdAt": "2026-11-18T01:45:07.574Z",
+      "updatedAt": "2026-11-18T01:45:15.004Z"
+    },
+    {
+      "id": "d0559dd5-c338-49ff-b743-4aec9ded630f",
+      "provider": "gemini-cli",
+      "name": "rizqynugroho88@gmail.com",
+      "authType": "oauth",
+      "priority": 1,
+      "isActive": true,
+      "testStatus": "active",
+      "createdAt": "2026-11-18T01:45:44.393Z",
+      "updatedAt": "2026-11-18T03:17:54.643Z"
+    },
+    {
+      "id": "f1dfb772-aff4-46e0-ab7b-ff12c5c887a8",
+      "provider": "openai-compatible-chat-5f9a377e-8dfa-4909-b2ea-016cc221b276",
+      "name": "rizqynugroho88",
+      "authType": "apikey",
+      "priority": 1,
+      "isActive": true,
+      "testStatus": "unavailable",
+      "createdAt": "2026-11-18T02:07:13.408Z",
+      "updatedAt": "2026-11-18T02:33:28.501Z"
+    },
+    {
+      "id": "f8e35df5-c098-4c8a-ae37-d03f8600b8da",
+      "provider": "openai-compatible-chat-4fbe9e47-7ff4-4dd6-b932-9a417afc1ec1",
+      "name": "rdevworkspace01",
+      "authType": "apikey",
+      "priority": 1,
+      "isActive": true,
+      "testStatus": "active",
+      "createdAt": "2026-11-18T03:01:03.857Z",
+      "updatedAt": "2026-11-18T03:01:03.857Z"
     }
   ]
 }

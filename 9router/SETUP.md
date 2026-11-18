@@ -43,7 +43,7 @@ Catatan penting: kirim `"stream": true` atau `"stream": false` secara eksplisit.
 Di `~/.config/opencode/opencode.jsonc`:
 
 - `"model": "9r/free-coding"` sebagai default.
-- Provider `9r` → `http://localhost:20128/v1`, API key ditaruh langsung di `settings.apiKey` (env `AI_9ROUTER` tetap ada, tidak dipakai).
+- Provider `9r` → `http://localhost:20128/v1`, API key dibaca dari file: `settings.apiKey: "{file:~/.secrets/9router-key}"` (dibuat `install.sh` dari env `AI_9ROUTER`; env itu sendiri tidak dipakai saat runtime).
 - 6 combo didaftarkan sebagai model: `free-coding`, `thb-free`, `daily-coding`, `fast-cheap`, `reasoning-coding`, `vision-coding`.
 - Provider `sp` (Sumopod langsung) sengaja **dibiarkan** sesuai permintaan.
 

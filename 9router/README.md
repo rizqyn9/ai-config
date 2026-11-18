@@ -32,6 +32,11 @@ the dashboard (`http://localhost:20128/dashboard`). The known nodes are:
 | `sp` | `https://ai.sumopod.com/v1` | `openai-compatible-chat-070a8a6c-cfe8-40c3-9a9c-69e86039fbaa` |
 | `thb` | `https://tokenharbor.ai/v1` | `openai-compatible-chat-62b40173-985f-4839-96d8-44ae14644270` |
 | `pecutopus` | `https://api.pecutopus.web.id/v1` | `openai-compatible-chat-pecutopus` |
+| `ka` | `https://kiosapi.com/v1` | `openai-compatible-chat-5f9a377e-8dfa-4909-b2ea-016cc221b276` |
+| `scloud` | `https://ai.sinarcloud.com/v1` | `openai-compatible-chat-4fbe9e47-7ff4-4dd6-b932-9a417afc1ec1` |
+
+Built-in connections also snapshotted in `providers.json`: `openrouter` (2), `gemini-cli`
+(prefix `gc`), and inactive `xiaomi-mimo`. Connection credentials are not stored.
 
 Notes:
 - Combos must use `kind: "llm"` or the dashboard hides them.

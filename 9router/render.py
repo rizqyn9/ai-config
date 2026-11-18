@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Render snapshot JSON into the small payloads apply.sh sends to 9router."""
+
 import json
 import sys
 
@@ -23,6 +24,8 @@ elif mode == "settings":
         "ponytailLevel",
         "cavemanEnabled",
         "cavemanLevel",
+        "requireApiKey",
+        "requireLogin",
     )
     print(json.dumps({k: data[k] for k in keys if k in data}))
 else:
